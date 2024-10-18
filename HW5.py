@@ -4,14 +4,15 @@
 # Сделайте ограничение на ввод отрицательных чисел и чисел больше 100 тысяч.
 
 num = int(input())
-new_num = int(input())
 
 if num >= 0 and num <= 100000:
-    while new_num < num:
-        new_num = new_num + 1
-        if num % 1 == 0 and num % num == 0 and num % new_num != 0:
-            print("Это простое число!")
-        else:
+    prime_num = True
+    for i in range (2, num // 2 + 1):
+        if num % i == 0:
             print("Это составное число!")
+            prime_num = False
+            break
+    if prime_num:
+            print("Это простое число!")
 else:
     print("Это число не подходит!")
